@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import Addnew from './Addnew';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+         <h1 style={{textAlign:"center", backgroundColor:"#4472C4", color:"white", padding:"20px", margin:"0"}}>Saurabh Shrikhande Directory App</h1>
+         <div>
+          <button className='btn'>Add New Person</button>
+          <button className='btn'>Retrieve Information</button>
+         </div>
+         
+          <div>
+         <Addnew/>
+          </div>
     </div>
   );
 }
