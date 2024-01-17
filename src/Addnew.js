@@ -36,6 +36,12 @@ export default function Addnew() {
   },[tabledata])
   // console.log(emptycard)
 
+  function del(idx){
+   let updatedtabledata = tabledata.filter((item) => {
+    return item.aadhar !== idx } )
+    settabledata(updatedtabledata);
+  }
+
   return (<div style={{ marginTop: "0" }}>
     <div style={{ border: "1px solid black", margin: "0px 50px 50px", minHeight: "70vh", position: "relative" }}>
       <h3 style={{ border: "1px solid black", margin: "0", display: "inline-block", padding: "20px  50px" }}>Add New Person</h3>
@@ -50,15 +56,15 @@ export default function Addnew() {
       </div>
       
       {
-        tabledata.map((item, idx) => {
-                return (<div key={idx}>
+        tabledata.map((item) => {
+                return (<div key={item.aadhar}>
         <div style={{ display: "flex", margin: "0px 20px", textAlign: "center" }}>
         <h4 style={{ width: "25%", border: "1px solid gray", padding: "5px 0px", margin:"0" }}>{item.name}</h4>
         <h4 style={{ width: "19.5%", border: "1px solid gray", padding: "5px 0px", margin:"0" }}>{item.dob}</h4>
         <h4 style={{ width: "21%", border: "1px solid gray", padding: "5px 0px", margin:"0" }}>{item.aadhar}</h4>
         <h4 style={{ width: "17.5%", border: "1px solid gray", padding: "5px 0px", margin:"0" }}>{item.mob}</h4>
         <h4 style={{ width: "7%", border: "1px solid gray", padding: "5px 0px", margin:"0" }}>{item.age}</h4>
-        <h4 style={{ width: "10%", border: "1px solid gray", padding: "5px 0px", margin:"0" }}>delete</h4>
+        <h4 style={{ width: "10%", border: "1px solid gray", padding: "5px 0px", margin:"0" }}  onClick={(idx)=> {del(item.aadhar)}} >delete</h4>
       </div>
                 </div> )
         })
@@ -76,7 +82,7 @@ export default function Addnew() {
           <input  style={{ width: "16vw", border: "1px solid gray", padding: "5px 0px" }} type="number" placeholder="Aadhar Number" min="100000000000" max="999999999999"  onChange={(e) => setnewdata([{...newdata[0] , aadhar:e.target.value}])} value={newdata[0].aadhar}  required/>
           <input  style={{ width: "14vw", border: "1px solid gray", padding: "5px 0px", textAlign: "center" }} type="number" placeholder="Mobile Number" min="1000000000" max="9999999999"  onChange={(e) => setnewdata([{...newdata[0] , mob:e.target.value}])} value={newdata[0].mob}  required/>
           <input  style={{ width: "5vw", border: "1px solid gray", padding: "5px 0px", textAlign: "center" }} type="number" placeholder="Age" disabled={true} value={newdata[0].age}  required/>
-          <input  style={{ width: "8vw", border: "1px solid gray", padding: "5px 0px", textAlign: "center" }} type="submit" placeholder="Action" value="save" onClick={()=> {}}  required/>
+          <input  style={{ width: "8vw", border: "1px solid gray", padding: "5px 0px", textAlign: "center" }} type="submit" placeholder="Action" value="save" required/>
           </form>
         </div>
         </div>
