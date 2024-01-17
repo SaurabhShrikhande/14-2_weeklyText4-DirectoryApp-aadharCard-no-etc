@@ -1,6 +1,7 @@
 import './App.css';
 import Addnew from './Addnew';
 import { useState } from 'react';
+import Retrieve from './Retrive';
 
 function App() {
     const [ addnewp , setaddnewp] = useState(true);
@@ -16,11 +17,14 @@ function App() {
           <div>
             {
                  addnewp && <Addnew/>
-                  
+            }
+            {
+              retrive && <Retrieve/>
             }
 
           
           </div>
+          
     </div>
   );
 }

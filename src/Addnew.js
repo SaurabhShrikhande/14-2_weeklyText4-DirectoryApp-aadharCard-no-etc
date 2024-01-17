@@ -41,7 +41,7 @@ export default function Addnew() {
 
   function del(idx){
    let updatedtabledata = tabledata.filter((item) => {
-    return item.aadhar !== idx } )
+    return item.aadhar !== tabledata[idx].aadhar } )
     settabledata(updatedtabledata);
     localStorage.setItem("tabledata", JSON.stringify(updatedtabledata))
   }
@@ -60,15 +60,15 @@ export default function Addnew() {
       </div>
       
       {
-        tabledata.map((item) => {
-                return (<div key={item.aadhar}>
+        tabledata.map((item, idx) => {
+                return (<div key={idx}>
         <div style={{ display: "flex", margin: "0px 20px", textAlign: "center" }}>
         <h4 style={{ width: "25%", border: "1px solid gray", padding: "5px 0px", margin:"0" }}>{item.name}</h4>
         <h4 style={{ width: "19.5%", border: "1px solid gray", padding: "5px 0px", margin:"0" }}>{item.dob}</h4>
         <h4 style={{ width: "21%", border: "1px solid gray", padding: "5px 0px", margin:"0" }}>{item.aadhar}</h4>
         <h4 style={{ width: "17.5%", border: "1px solid gray", padding: "5px 0px", margin:"0" }}>{item.mob}</h4>
         <h4 style={{ width: "7%", border: "1px solid gray", padding: "5px 0px", margin:"0" }}>{item.age}</h4>
-        <h4 style={{ width: "10%", border: "1px solid gray", padding: "5px 0px", margin:"0" }}  onClick={(idx)=> {del(item.aadhar)}} >delete</h4>
+        <h4 style={{ width: "10%", border: "1px solid gray", padding: "5px 0px", margin:"0" }}  onClick={()=> {del(idx)}} >delete</h4>
       </div>
                 </div> )
         })
