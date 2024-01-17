@@ -7,11 +7,14 @@ export default function Addnew() {
 
 
   useEffect(() => {
-     //   settabledata(JSON.parse(localStorage.getItem("tabledata")))
+    if (localStorage.length !== 0){
+    let dataa =  JSON.parse(localStorage.getItem("tabledata"));
+        settabledata(dataa);
+    }
   },[])
 
   function Newinfocard() {
-      console.log("clicked")
+    //  console.log("clicked")
      setemptycard (true);
   }
  
@@ -32,7 +35,7 @@ export default function Addnew() {
   }
 
   useEffect(() => {
-    // localStorage.setItem("tabledata", JSON.stringify(tabledata))
+    if(tabledata.length !== 0) localStorage.setItem("tabledata", JSON.stringify(tabledata))
   },[tabledata])
   // console.log(emptycard)
 
