@@ -1,4 +1,4 @@
-import { useState , useEffect} from "react"
+import { useState , useEffect} from "react";
 
 export default function Addnew() {
   const [emptycard, setemptycard] = useState(false);
@@ -43,6 +43,7 @@ export default function Addnew() {
    let updatedtabledata = tabledata.filter((item) => {
     return item.aadhar !== idx } )
     settabledata(updatedtabledata);
+    localStorage.setItem("tabledata", JSON.stringify(updatedtabledata))
   }
 
   return (<div style={{ marginTop: "0" }}>
